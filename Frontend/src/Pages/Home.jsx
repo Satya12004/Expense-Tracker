@@ -32,7 +32,7 @@ const Home = () => {
       }
 try {
   
-  let res = await axios.post('http://localhost:8090/expense/create',obj)
+  let res = await axios.post('https://expense-tracker-eijp.onrender.com/expense/create',obj)
   console.log(res)
   console.log(res.data)
   if(res.status==200 || res.status==201){
@@ -49,7 +49,7 @@ try {
 
     const [Allexpenses, setAllexpenses] = useState([]);
     const getAllExpense = async()=>{
-      let res = await axios.post(`http://localhost:8090/expense/get/${id}`)
+      let res = await axios.post(`https://expense-tracker-eijp.onrender.com/expense/get/${id}`)
       let data = res.data
       console.log(data)
       setAllexpenses(data.data)
@@ -61,7 +61,7 @@ try {
     
    async function handleDelete(obj) {
     console.log(obj)
-    let res=await axios.delete(`http://localhost:8090/expense/delete/${obj._id}`)
+    let res=await axios.delete(`https://expense-tracker-eijp.onrender.com/expense/delete/${obj._id}`)
     let data=res.data
     console.log(data)
     alert(data.msg)
@@ -88,7 +88,7 @@ try {
 
     console.log(obj)
     console.log(showBox)
-    let res = await axios.put(`http://localhost:8090/expense/update/${showBox._id}`,obj)
+    let res = await axios.put(`https://expense-tracker-eijp.onrender.com/expense/update/${showBox._id}`,obj)
     let data = res.data;
     console.log(data)
     setshowBox(null)

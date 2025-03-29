@@ -25,7 +25,7 @@ const handleSubmit= async (e)=>{
     e.preventDefault()
 console.log(details)
 try {
-    let res=await axios.post('http://localhost:8090/user/login',details)
+    let res=await axios.post('https://expense-tracker-eijp.onrender.com/user/login',details)
     console.log(res)
     if (res.status==200 || res.status==201) {
     localStorage.setItem('expense',JSON.stringify({login:true,user:res.data.user}))

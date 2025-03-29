@@ -22,7 +22,7 @@ const handleSubmit= async (e)=>{
     e.preventDefault()
 console.log(details)
 try {
-    let res=await axios.post('http://localhost:8090/user/create',details)
+    let res=await axios.post('https://expense-tracker-eijp.onrender.com/user/create',details)
     console.log(res)
     if (res.status==200 || res.status==201) {
       navigate('/login')
