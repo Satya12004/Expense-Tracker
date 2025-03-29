@@ -3,6 +3,7 @@ const { ObjectId } = require('mongodb');
 
 const CreateExpense=async(req,res)=>{
     const{ExpenseName,Price,Id,Date}=req.body
+    console.log(req.body)
     if(!ExpenseName){
        return res.json({msg:"ExpenseName is required"})
     }
@@ -12,8 +13,9 @@ const CreateExpense=async(req,res)=>{
     }
     try{
     let collection =await expense()
+    console.log(collection)
     // let findExpense=await collection.findOne({ExpenseName});
-  let data =collection.insertOne({
+  let data = await collection.insertOne({
         ExpenseName,
         Price,
         Id,
@@ -21,7 +23,7 @@ const CreateExpense=async(req,res)=>{
     })
     res.status(201).json({msg:"Expense Create successFully",data})
 
-}catch{
+}catch(error){
     res.status(401).json({msg:"expense is not created!!",error:error.message});
     
 }
