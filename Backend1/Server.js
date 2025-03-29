@@ -29,7 +29,13 @@ const { MongoClient } = require('mongodb');
 // testConnection();
 
 
-app.use(cors())
+app.use(cors( 
+    {
+        origin: 'https://expense-tracker-umber-chi.vercel.app', 
+        credentials: true
+    }
+    
+))
 app.use(express.json())
 
 
